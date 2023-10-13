@@ -18,8 +18,8 @@ namespace HttpClientDemo.WebForms
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            var service = new ClientNetFX6.Service63();
-            var result = service.GetEntries().Result;
+            var service = new ClientNetFX6.Service64();
+            var result = service.GetEntries();
             TextBox1.Text = result;
         }
     }

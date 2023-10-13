@@ -19,7 +19,6 @@ namespace HttpClientDemo.ClientNetFX6
         {
             var client = _restClientFactory.CreateForDemoApi();
 
-            Console.WriteLine("Running. Thread: " + Thread.CurrentThread.ManagedThreadId + ", Time:" + DateTime.Now.ToString("O"));
             var request = new RestRequest(ApiSettings.Instance.ApiGetEndpoint);
             var response = client.ExecuteGet(request);
 

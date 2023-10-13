@@ -3,6 +3,7 @@ using RestSharp;
 using RestSharp.Authenticators;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
@@ -36,13 +37,20 @@ namespace HttpClientDemo.ClientNetFX6
 
     public class RestClientFactory : IRestClientFactory
     {
-        public static RestClientFactory Instance = new RestClientFactory();
-        private RestClientFactory() { }
+        private static readonly Lazy<List<IClientFactory>> _listFactories = new Lazy<List<IClientFactory>>(FindAllClientFactories);
+        private static readonly Lazy<RestClientFactory> _instance = new Lazy<RestClientFactory>(() => new RestClientFactory());
+        private readonly Dictionary<string, IClientFactory> _factories;
 
-        private readonly Dictionary<string, IClientFactory> _factories = new Dictionary<string, IClientFactory>()
+        public static RestClientFactory Instance => _instance.Value;
+
+        public RestClientFactory(IEnumerable<IClientFactory> factories)
         {
-            { nameof(DemoApiClient) , new DemoApiClient() }
-        };
+            _factories = factories.ToDictionary(x => x.Name, x => x);
+        }
+        private RestClientFactory()
+        {
+            _factories = _listFactories.Value.ToDictionary(x => x.Name, x => x);
+        }
 
         public RestClient Create(string name)
         {
@@ -52,6 +60,16 @@ namespace HttpClientDemo.ClientNetFX6
             }
 
             throw new NotSupportedException($"ClientFactory with name '{name}' not found.");
+        }
+
+        private static List<IClientFactory> FindAllClientFactories()
+        {
+            var factoryInterface = typeof(IClientFactory);
+            return factoryInterface.Assembly
+                .GetTypes()
+                .Where(type => factoryInterface != type && factoryInterface.IsAssignableFrom(type))
+                .Select(type => Activator.CreateInstance(type) as IClientFactory)
+                .ToList();
         }
     }
 
@@ -115,7 +133,7 @@ namespace HttpClientDemo.ClientNetFX6
             private static async ValueTask<TokenDto> GetToken(Uri apiUri)
             {
                 Console.WriteLine("Checking Token, Thread:" + Thread.CurrentThread.ManagedThreadId + ", Time:" + DateTime.Now.ToString("O") + " - " + HttpContext.Current?.Session?["test"]);
-                
+
                 if (IsTokenValid) return _token;
 
                 Console.WriteLine("Waiting for Token, Thread:" + Thread.CurrentThread.ManagedThreadId + ", Time:" + DateTime.Now.ToString("O"));

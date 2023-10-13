@@ -11,9 +11,6 @@ namespace HttpClientDemo.ClientNetFX
     {
         static void Main(string[] args)
         {
-            HttpContext.Current = new HttpContext(new HttpRequest("a", "https://google.com", "a"), new HttpResponse(null));
-            HttpContext.Current.Items["x"] = "1";
-
             while (true)
             {
                 Console.Write("Choose option: ");

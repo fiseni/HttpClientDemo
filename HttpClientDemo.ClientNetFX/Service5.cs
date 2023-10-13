@@ -93,7 +93,6 @@ namespace HttpClientDemo.ClientNetFX5
 
             private async Task<TokenDto> GetToken()
             {
-                Console.WriteLine("Getting new Token");
                 var options = new RestClientOptions(_apiUri);
 
                 using (var client = new RestClient(options))
