@@ -3,8 +3,9 @@ using System.Threading.Tasks;
 
 namespace HttpClientDemo.ClientNetFX6
 {
-    // Testing sync calls of RestSharp.
-    // It uses AsyncHelper to run sync over async, and I'm curious if there are issues.
+    // Option 64
+    // Same as option 63, just running multiple calls.
+    // The first impression is that this will run fully synchronously. But, the results are quite surprising.
     public class Service64
     {
         private readonly IRestClientFactory _restClientFactory;

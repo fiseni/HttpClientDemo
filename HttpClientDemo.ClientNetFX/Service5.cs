@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace HttpClientDemo.ClientNetFX5
 {
+    // Option 5
+    // We've defined a factory that creates a RestClient instance (returns the same client instance). 
+    // Also, we've defined a wrapper around the RestClient that configures the client, handles the authentication and exposes a singleton instance.
+    // Note we're not utilizing the useClientFactory option, since we hold a single instance anyway.
+    // It's prone to the same DNS issues. Follow the recommendations from Option2.
     public class Service5
     {
         private readonly IRestClientFactory _restClientFactory;

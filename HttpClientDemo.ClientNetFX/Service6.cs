@@ -9,6 +9,10 @@ using System.Web;
 
 namespace HttpClientDemo.ClientNetFX6
 {
+    // Option 6
+    // It's an evolved version of Option5. I'm quite fond of this approach.
+    // We're utilizing the useClientFactory setting to cache the HttpClient instances, but consumers have flexibility of further customization per RestClient instance.
+    // Also tried to mimic the IHttpClientFactory behavior, the named clients feature in particular.
     public class Service6
     {
         private readonly IRestClientFactory _restClientFactory;

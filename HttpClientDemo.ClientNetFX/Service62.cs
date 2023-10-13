@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 
 namespace HttpClientDemo.ClientNetFX6
 {
+    // Option 62
+    // Same as Option61, but we're creating a new RestClient instance through the factory on each call.
+    // No effect on the number of open connections.
     public class Service62
     {
         private readonly IRestClientFactory _restClientFactory;

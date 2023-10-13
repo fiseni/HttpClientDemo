@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 
 namespace HttpClientDemo.ClientNetFX6
 {
+    // Option 61
+    // It's based on Option6, just exploring the effect of concurrent calls.
     public class Service61
     {
         private readonly IRestClientFactory _restClientFactory;
