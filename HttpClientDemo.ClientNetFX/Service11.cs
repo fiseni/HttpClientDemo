@@ -6,7 +6,7 @@ namespace HttpClientDemo.ClientNetFX1
 {
     internal class Service11
     {
-        public async Task<string> GetStatusCode()
+        public async Task<string> GetStatusCodeAsync()
         {
             try
             {

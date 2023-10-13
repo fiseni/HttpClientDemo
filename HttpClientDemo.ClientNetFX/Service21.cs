@@ -12,7 +12,7 @@ namespace HttpClientDemo.ClientNetFX2
             DefaultRequestHeaders = { { "accept", "application/json" } }
         };
 
-        public async Task<string> GetStatusCode()
+        public async Task<string> GetStatusCodeAsync()
         {
             try
             {

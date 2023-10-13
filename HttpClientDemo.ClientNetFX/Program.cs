@@ -1,13 +1,10 @@
 ﻿using System;
-using System.IO;
 using System.Net;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace HttpClientDemo.ClientNetFX
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -16,28 +13,35 @@ namespace HttpClientDemo.ClientNetFX
                 Console.Write("Choose option: ");
                 var option = Console.ReadLine();
 
-                switch (option)
-                {
-                    case "1": Console.WriteLine(new ClientNetFX1.Service1().GetStatusCode().Result); break;
-                    case "11": Console.WriteLine(new ClientNetFX1.Service11().GetStatusCode().Result); break;
-                    case "2": Console.WriteLine(new ClientNetFX2.Service2().GetStatusCode().Result); break;
-                    case "21": Console.WriteLine(new ClientNetFX2.Service21().GetStatusCode().Result); break;
-                    case "3": Console.WriteLine(new ClientNetFX3.Service3().GetStatusCode().Result); break;
-                    case "4": Console.WriteLine(new ClientNetFX4.Service4().GetStatusCode().Result); break;
-                    case "5": Console.WriteLine(new ClientNetFX5.Service5().GetStatusCode().Result); break;
-                    case "6": Console.WriteLine(new ClientNetFX6.Service6().GetStatusCode().Result); break;
-                    case "61": Console.WriteLine(new ClientNetFX6.Service61().GetStatusCode().Result); break;
-                    case "62": Console.WriteLine(new ClientNetFX6.Service62().GetStatusCode().Result); break;
-                    case "63": Console.WriteLine(new ClientNetFX6.Service63().GetStatusCode().Result); break;
-                    case "64": Console.WriteLine(new ClientNetFX6.Service64().GetStatusCode()); break;
-                    default: break;
-                }
+                var response = GetResponseAsync(option).Result;
+
+                Console.WriteLine(response);
 
                 PrintServicePointInfo();
             }
         }
 
-        private static void PrintServicePointInfo()
+        public static async Task<string> GetResponseAsync(string option)
+        {
+            switch (option)
+            {
+                case "1": return await new ClientNetFX1.Service1().GetStatusCodeAsync().ConfigureAwait(false);
+                case "11": return await new ClientNetFX1.Service11().GetStatusCodeAsync().ConfigureAwait(false);
+                case "2": return await new ClientNetFX2.Service2().GetStatusCodeAsync().ConfigureAwait(false);
+                case "21": return await new ClientNetFX2.Service21().GetStatusCodeAsync().ConfigureAwait(false);
+                case "3": return await new ClientNetFX3.Service3().GetStatusCodeAsync().ConfigureAwait(false);
+                case "4": return await new ClientNetFX4.Service4().GetStatusCodeAsync().ConfigureAwait(false);
+                case "5": return await new ClientNetFX5.Service5().GetStatusCodeAsync().ConfigureAwait(false);
+                case "6": return await new ClientNetFX6.Service6().GetStatusCodeAsync().ConfigureAwait(false);
+                case "61": return await new ClientNetFX6.Service61().GetStatusCodeAsync().ConfigureAwait(false);
+                case "62": return await new ClientNetFX6.Service62().GetStatusCodeAsync().ConfigureAwait(false);
+                case "63": return new ClientNetFX6.Service63().GetStatusCode();
+                case "64": return new ClientNetFX6.Service64().GetStatusCode();
+                default: return "Not valid option!";
+            }
+        }
+
+        public static void PrintServicePointInfo()
         {
             var servicePoint = ServicePointManager.FindServicePoint(new Uri(ApiSettings.Instance.ApiUrl));
             Console.WriteLine($"ServicePointManager: " + Environment.NewLine +
@@ -56,7 +60,7 @@ namespace HttpClientDemo.ClientNetFX
                 $"SupportsPipelining: {servicePoint.SupportsPipelining}");
         }
 
-        private static void ConfigureServicePoint()
+        public static void ConfigureServicePoint()
         {
             var servicePoint = ServicePointManager.FindServicePoint(new Uri(ApiSettings.Instance.ApiUrl));
             servicePoint.ConnectionLeaseTimeout = 5 * 1000;

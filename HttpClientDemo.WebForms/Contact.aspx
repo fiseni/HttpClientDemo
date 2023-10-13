@@ -12,9 +12,7 @@
         </address>
 
         <address>
-            <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            <br />
+            <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
             <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
         </address>
     </main>

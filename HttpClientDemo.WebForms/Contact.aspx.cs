@@ -13,14 +13,6 @@ namespace HttpClientDemo.WebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            HttpContext.Current.Session["test"] = "test";
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            var service = new ClientNetFX6.Service64();
-            var result = service.GetStatusCode();
-            TextBox1.Text = result;
         }
     }
 }

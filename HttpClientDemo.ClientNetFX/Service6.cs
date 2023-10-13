@@ -1,5 +1,4 @@
-﻿using HttpClientDemo.ClientNetFX;
-using RestSharp;
+﻿using RestSharp;
 using RestSharp.Authenticators;
 using System;
 using System.Collections.Generic;
@@ -19,7 +18,7 @@ namespace HttpClientDemo.ClientNetFX6
             _restClientFactory = RestClientFactory.Instance;
         }
 
-        public async Task<string> GetStatusCode()
+        public async Task<string> GetStatusCodeAsync()
         {
             var client = _restClientFactory.CreateForDemoApi();
 
@@ -162,5 +161,12 @@ namespace HttpClientDemo.ClientNetFX6
                 return _token;
             }
         }
+    }
+
+    public class TokenDto
+    {
+        public string AccessToken { get; set; }
+        public string RefreshToken { get; set; }
+        public long Expiration { get; set; }
     }
 }

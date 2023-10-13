@@ -12,7 +12,7 @@ namespace HttpClientDemo.ClientNetFX6
             _restClientFactory = RestClientFactory.Instance;
         }
 
-        public async Task<string> GetStatusCode()
+        public async Task<string> GetStatusCodeAsync()
         {
             var client = _restClientFactory.CreateForDemoApi();
 

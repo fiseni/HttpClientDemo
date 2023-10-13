@@ -6,7 +6,7 @@ namespace HttpClientDemo.ClientNetFX4
 {
     internal class Service4
     {
-        public async Task<string> GetStatusCode()
+        public async Task<string> GetStatusCodeAsync()
         {
             var client = CreateClient();
 

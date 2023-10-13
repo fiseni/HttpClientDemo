@@ -90,7 +90,6 @@
     <Compile Include="Service61.cs" />
     <Compile Include="Service6.cs" />
     <Compile Include="Service5.cs" />
-    <Compile Include="TokenDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -5,7 +5,7 @@ namespace HttpClientDemo.ClientNetFX3
 {
     internal class Service3
     {
-        public async Task<string> GetStatusCode()
+        public async Task<string> GetStatusCodeAsync()
         {
             var options = new RestClientOptions(ApiSettings.Instance.ApiUrl);
 

@@ -12,4 +12,6 @@ dotnet run -c Release
 ```
 while ($true) {netstat -ano | findstr :7217; sleep 1; cls}
 ```
-- Run the `ClientNetFx` console app, and test various options.
+- Run the clients and test various options.
+1. Run the `ClientNetFx` project. It's a .NET Framework 4.8 console app.
+2. Run the `WebForms` project. It's a ASP.NET WebForms 4.8 app.
