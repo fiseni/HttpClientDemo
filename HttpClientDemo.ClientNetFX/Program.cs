@@ -1,5 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Web;
 
 namespace HttpClientDemo.ClientNetFX
 {
@@ -7,6 +11,9 @@ namespace HttpClientDemo.ClientNetFX
     {
         static void Main(string[] args)
         {
+            HttpContext.Current = new HttpContext(new HttpRequest("a", "https://google.com", "a"), new HttpResponse(null));
+            HttpContext.Current.Items["x"] = "1";
+
             while (true)
             {
                 Console.Write("Choose option: ");
@@ -17,10 +24,15 @@ namespace HttpClientDemo.ClientNetFX
                     case "1": Console.WriteLine(new ClientNetFX1.Service1().GetEntries().Result); break;
                     case "11": Console.WriteLine(new ClientNetFX1.Service11().GetEntries().Result); break;
                     case "2": Console.WriteLine(new ClientNetFX2.Service2().GetEntries().Result); break;
-                    case "22": Console.WriteLine(new ClientNetFX2.Service22().GetEntries().Result); break;
+                    case "21": Console.WriteLine(new ClientNetFX2.Service21().GetEntries().Result); break;
                     case "3": Console.WriteLine(new ClientNetFX3.Service3().GetEntries().Result); break;
                     case "4": Console.WriteLine(new ClientNetFX4.Service4().GetEntries().Result); break;
                     case "5": Console.WriteLine(new ClientNetFX5.Service5().GetEntries().Result); break;
+                    case "6": Console.WriteLine(new ClientNetFX6.Service6().GetEntries().Result); break;
+                    case "61": Console.WriteLine(new ClientNetFX6.Service61().GetEntries().Result); break;
+                    case "62": Console.WriteLine(new ClientNetFX6.Service62().GetEntries().Result); break;
+                    case "63": Console.WriteLine(new ClientNetFX6.Service63().GetEntries().Result); break;
+                    case "64": Console.WriteLine(new ClientNetFX6.Service64().GetEntries()); break;
                     default: break;
                 }
 

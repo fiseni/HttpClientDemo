@@ -81,9 +81,14 @@
     <Compile Include="Service1.cs" />
     <Compile Include="Service11.cs" />
     <Compile Include="Service2.cs" />
-    <Compile Include="Service22.cs" />
+    <Compile Include="Service21.cs" />
     <Compile Include="Service3.cs" />
     <Compile Include="Service4.cs" />
+    <Compile Include="Service64.cs" />
+    <Compile Include="Service63.cs" />
+    <Compile Include="Service62.cs" />
+    <Compile Include="Service61.cs" />
+    <Compile Include="Service6.cs" />
     <Compile Include="Service5.cs" />
     <Compile Include="TokenDto.cs" />
   </ItemGroup>

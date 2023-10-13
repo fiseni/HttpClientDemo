@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace HttpClientDemo.ClientNetFX2
 {
-    internal class Service22
+    internal class Service21
     {
         private static readonly HttpClient _client = new HttpClient
         {
