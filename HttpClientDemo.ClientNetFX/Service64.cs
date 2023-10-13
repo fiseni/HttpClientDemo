@@ -6,6 +6,8 @@ using System.Web;
 
 namespace HttpClientDemo.ClientNetFX6
 {
+    // Testing sync calls of RestSharp.
+    // It uses AsyncHelper to run sync over async, and I'm curious if there are issues.
     public class Service64
     {
         private readonly IRestClientFactory _restClientFactory;
