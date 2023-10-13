@@ -18,6 +18,8 @@ while ($true) {netstat -ano | findstr :7217; sleep 1; cls}
 
 ## Scenarios
 
+All implementations for the options below are provided in the `ClientNetFx` project.
+
 ### Option 1
 
 Not recommended. It instantiates a new HttpClient on each call; that means new HttpMessageHandler instance and new TCP connection. The least we can do is dispose the HttpClient instance (enclose it in using statement). This will force the connection to TIME_WAIT state (and OS will close it after ~2 minutes). It's not efficient and can lead to socket exhaustion. Also, creating a new connection is expensive.
