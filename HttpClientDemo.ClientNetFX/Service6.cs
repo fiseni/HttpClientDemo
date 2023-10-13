@@ -131,11 +131,11 @@ namespace HttpClientDemo.ClientNetFX6
 
             private static async ValueTask<TokenDto> GetToken(Uri apiUri)
             {
-                Console.WriteLine("Checking Token, Thread:" + Thread.CurrentThread.ManagedThreadId + ", Time:" + DateTime.Now.ToString("O") + " - " + HttpContext.Current?.Session?["test"]);
+                Console.WriteLine($"Checking Token. \tTime: {DateTime.Now:mm:ss.FFFFFFF}");
 
                 if (IsTokenValid) return _token;
 
-                Console.WriteLine("Waiting for Token, Thread:" + Thread.CurrentThread.ManagedThreadId + ", Time:" + DateTime.Now.ToString("O"));
+                Console.WriteLine($"Waiting for Token. \tTime: {DateTime.Now:mm:ss.FFFFFFF}");
 
                 await semaphoreSlim.WaitAsync().ConfigureAwait(false);
 
@@ -143,7 +143,7 @@ namespace HttpClientDemo.ClientNetFX6
                 {
                     if (IsTokenValid) return _token;
 
-                    Console.WriteLine("Getting new Token, Thread:" + Thread.CurrentThread.ManagedThreadId + ", Time:" + DateTime.Now.ToString("O"));
+                    Console.WriteLine($"Getting new Token. \tTime: {DateTime.Now:mm:ss.FFFFFFF}");
 
                     var options = new RestClientOptions(apiUri);
 

@@ -17,7 +17,7 @@ namespace HttpClientDemo.ClientNetFX1
 
                 await Task.WhenAll(task1, task2, task3, task4).ConfigureAwait(false);
 
-                return task1.Result + task2.Result + task3.Result + task4.Result;
+                return $"{task1.Result} {task2.Result} {task3.Result} {task4.Result}";
             }
             catch (Exception)
             {

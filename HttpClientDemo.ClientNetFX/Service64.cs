@@ -25,7 +25,7 @@ namespace HttpClientDemo.ClientNetFX6
 
             Task.WaitAll(task1, task2, task3, task4);
 
-            return task1.Result + task2.Result + task3.Result + task4.Result;
+            return $"{task1.Result} {task2.Result} {task3.Result} {task4.Result}";
         }
         private Task<string> RunAsync(RestClient client)
         {

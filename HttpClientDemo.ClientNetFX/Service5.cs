@@ -52,10 +52,6 @@ namespace HttpClientDemo.ClientNetFX5
         {
             _apiUri = new Uri(ApiSettings.Instance.ApiUrl);
 
-            var servicePoint = ServicePointManager.FindServicePoint(_apiUri);
-            servicePoint.ConnectionLeaseTimeout = 15 * 60 * 1000;
-            servicePoint.ConnectionLimit = ServicePointManager.DefaultPersistentConnectionLimit;
-
             var options = new RestClientOptions(_apiUri)
             {
                 Authenticator = new MyAuthenticator(_apiUri)

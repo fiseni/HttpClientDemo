@@ -8,6 +8,8 @@ namespace HttpClientDemo.ClientNetFX
     {
         static void Main(string[] args)
         {
+            ConfigureServicePoint();
+
             while (true)
             {
                 Console.Write("Choose option: ");
@@ -15,7 +17,7 @@ namespace HttpClientDemo.ClientNetFX
 
                 var response = GetResponseAsync(option).Result;
 
-                Console.WriteLine(response);
+                Console.WriteLine($"{Environment.NewLine}Response: {response}");
 
                 PrintServicePointInfo();
             }
@@ -44,26 +46,31 @@ namespace HttpClientDemo.ClientNetFX
         public static void PrintServicePointInfo()
         {
             var servicePoint = ServicePointManager.FindServicePoint(new Uri(ApiSettings.Instance.ApiUrl));
-            Console.WriteLine($"ServicePointManager: " + Environment.NewLine +
-                $"DefaultConnectionLimit: {ServicePointManager.DefaultConnectionLimit} " + Environment.NewLine +
-                $"DnsRefreshTimeout: {ServicePointManager.DnsRefreshTimeout} " + Environment.NewLine +
-                $"EnableDnsRoundRobin: {ServicePointManager.EnableDnsRoundRobin} " + Environment.NewLine +
-                $"Address: {servicePoint.Address} " + Environment.NewLine +
-                $"ConnectionLeaseTimeout: {servicePoint.ConnectionLeaseTimeout} " + Environment.NewLine +
-                $"ConnectionLimit: {servicePoint.ConnectionLimit} " + Environment.NewLine +
-                $"ConnectionName: {servicePoint.ConnectionName} " + Environment.NewLine +
-                $"CurrentConnections: {servicePoint.CurrentConnections} " + Environment.NewLine +
-                $"Expect100Continue: {servicePoint.Expect100Continue} " + Environment.NewLine +
-                $"IdleSince: {servicePoint.IdleSince} " + Environment.NewLine +
-                $"MaxIdleTime: {servicePoint.MaxIdleTime} " + Environment.NewLine +
-                $"ProtocolVersion: {servicePoint.ProtocolVersion} " + Environment.NewLine +
-                $"SupportsPipelining: {servicePoint.SupportsPipelining}");
+            var newLine = Environment.NewLine;
+            Console.WriteLine(newLine +
+                $"ServicePoint Values: {newLine}" +
+                $"DefaultConnectionLimit: {ServicePointManager.DefaultConnectionLimit}{newLine}" +
+                $"DnsRefreshTimeout: {ServicePointManager.DnsRefreshTimeout}{newLine}" +
+                $"EnableDnsRoundRobin: {ServicePointManager.EnableDnsRoundRobin}{newLine}" +
+                $"Address: {servicePoint.Address}{newLine}" +
+                $"ConnectionLeaseTimeout: {servicePoint.ConnectionLeaseTimeout}{newLine}" +
+                $"ConnectionLimit: {servicePoint.ConnectionLimit}{newLine}" +
+                $"ConnectionName: {servicePoint.ConnectionName}{newLine}" +
+                $"CurrentConnections: {servicePoint.CurrentConnections}{newLine}" +
+                $"Expect100Continue: {servicePoint.Expect100Continue}{newLine}" +
+                $"IdleSince: {servicePoint.IdleSince}{newLine}" +
+                $"MaxIdleTime: {servicePoint.MaxIdleTime}{newLine}" +
+                $"ProtocolVersion: {servicePoint.ProtocolVersion}{newLine}" +
+                $"SupportsPipelining: {servicePoint.SupportsPipelining}{newLine}" +
+                $"------------------------------------------{newLine}");
         }
 
         public static void ConfigureServicePoint()
         {
+            // The servicepoint connection limit is set to 2 by default.
+            // But, if the remote host is localhost, the limit is set to Int32.maxvalue (which is just a placeholder for no limit).
+            // Therefore we'll explicitly set the limit to 2.
             var servicePoint = ServicePointManager.FindServicePoint(new Uri(ApiSettings.Instance.ApiUrl));
-            servicePoint.ConnectionLeaseTimeout = 5 * 1000;
             servicePoint.ConnectionLimit = ServicePointManager.DefaultPersistentConnectionLimit;
         }
     }
