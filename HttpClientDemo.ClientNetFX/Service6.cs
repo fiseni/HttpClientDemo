@@ -19,11 +19,11 @@ namespace HttpClientDemo.ClientNetFX6
             _restClientFactory = RestClientFactory.Instance;
         }
 
-        public async Task<string> GetEntries()
+        public async Task<string> GetStatusCode()
         {
             var client = _restClientFactory.CreateForDemoApi();
 
-            var request = new RestRequest(ApiSettings.Instance.ApiGetEndpoint);
+            var request = new RestRequest(ApiSettings.Instance.ApiGetEndpointProtected);
             var response = await client.ExecuteGetAsync(request).ConfigureAwait(false);
 
             return response.StatusCode.ToString();

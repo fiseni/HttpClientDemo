@@ -12,11 +12,11 @@ namespace HttpClientDemo.ClientNetFX2
             DefaultRequestHeaders = { { "accept", "application/json" } }
         };
 
-        public async Task<string> GetEntries()
+        public async Task<string> GetStatusCode()
         {
             try
             {
-                var response = await _client.GetAsync(ApiSettings.Instance.ApiGetEndpoint);
+                var response = await _client.GetAsync(ApiSettings.Instance.ApiGetEndpoint).ConfigureAwait(false);
 
                 return response.StatusCode.ToString();
             }

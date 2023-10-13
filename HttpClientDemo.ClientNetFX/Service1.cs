@@ -6,7 +6,7 @@ namespace HttpClientDemo.ClientNetFX1
 {
     internal class Service1
     {
-        public async Task<string> GetEntries()
+        public async Task<string> GetStatusCode()
         {
             try
             {
@@ -16,7 +16,7 @@ namespace HttpClientDemo.ClientNetFX1
                     DefaultRequestHeaders = { { "accept", "application/json" } },
                 };
 
-                var response = await client.GetAsync(ApiSettings.Instance.ApiGetEndpoint);
+                var response = await client.GetAsync(ApiSettings.Instance.ApiGetEndpoint).ConfigureAwait(false);
 
                 return response.StatusCode.ToString();
             }

@@ -16,12 +16,12 @@ namespace HttpClientDemo.ClientNetFX5
             _restClientFactory = RestClientFactory.Instance;
         }
 
-        public async Task<string> GetEntries()
+        public async Task<string> GetStatusCode()
         {
             var client = _restClientFactory.CreateForDemoServer();
 
-            var request = new RestRequest(ApiSettings.Instance.ApiGetEndpoint);
-            var response = await client.ExecuteGetAsync(request);
+            var request = new RestRequest(ApiSettings.Instance.ApiGetEndpointProtected);
+            var response = await client.ExecuteGetAsync(request).ConfigureAwait(false);
 
             return response.StatusCode.ToString();
         }
@@ -84,7 +84,7 @@ namespace HttpClientDemo.ClientNetFX5
             {
                 if (_token == null || string.IsNullOrEmpty(_token.AccessToken) || _token.Expiration < DateTime.UtcNow.Ticks)
                 {
-                    _token = await GetToken();
+                    _token = await GetToken().ConfigureAwait(false);
                 }
 
                 var headerParameter = new HeaderParameter(KnownHeaders.Authorization, "Bearer " + _token.AccessToken);
@@ -98,7 +98,7 @@ namespace HttpClientDemo.ClientNetFX5
                 using (var client = new RestClient(options))
                 {
                     var request = new RestRequest("identity/authenticate");
-                    var result = await client.PostAsync<TokenDto>(request);
+                    var result = await client.PostAsync<TokenDto>(request).ConfigureAwait(false);
                     return result;
                 };
             }

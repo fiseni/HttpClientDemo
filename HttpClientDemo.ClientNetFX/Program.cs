@@ -18,18 +18,18 @@ namespace HttpClientDemo.ClientNetFX
 
                 switch (option)
                 {
-                    case "1": Console.WriteLine(new ClientNetFX1.Service1().GetEntries().Result); break;
-                    case "11": Console.WriteLine(new ClientNetFX1.Service11().GetEntries().Result); break;
-                    case "2": Console.WriteLine(new ClientNetFX2.Service2().GetEntries().Result); break;
-                    case "21": Console.WriteLine(new ClientNetFX2.Service21().GetEntries().Result); break;
-                    case "3": Console.WriteLine(new ClientNetFX3.Service3().GetEntries().Result); break;
-                    case "4": Console.WriteLine(new ClientNetFX4.Service4().GetEntries().Result); break;
-                    case "5": Console.WriteLine(new ClientNetFX5.Service5().GetEntries().Result); break;
-                    case "6": Console.WriteLine(new ClientNetFX6.Service6().GetEntries().Result); break;
-                    case "61": Console.WriteLine(new ClientNetFX6.Service61().GetEntries().Result); break;
-                    case "62": Console.WriteLine(new ClientNetFX6.Service62().GetEntries().Result); break;
-                    case "63": Console.WriteLine(new ClientNetFX6.Service63().GetEntries().Result); break;
-                    case "64": Console.WriteLine(new ClientNetFX6.Service64().GetEntries()); break;
+                    case "1": Console.WriteLine(new ClientNetFX1.Service1().GetStatusCode().Result); break;
+                    case "11": Console.WriteLine(new ClientNetFX1.Service11().GetStatusCode().Result); break;
+                    case "2": Console.WriteLine(new ClientNetFX2.Service2().GetStatusCode().Result); break;
+                    case "21": Console.WriteLine(new ClientNetFX2.Service21().GetStatusCode().Result); break;
+                    case "3": Console.WriteLine(new ClientNetFX3.Service3().GetStatusCode().Result); break;
+                    case "4": Console.WriteLine(new ClientNetFX4.Service4().GetStatusCode().Result); break;
+                    case "5": Console.WriteLine(new ClientNetFX5.Service5().GetStatusCode().Result); break;
+                    case "6": Console.WriteLine(new ClientNetFX6.Service6().GetStatusCode().Result); break;
+                    case "61": Console.WriteLine(new ClientNetFX6.Service61().GetStatusCode().Result); break;
+                    case "62": Console.WriteLine(new ClientNetFX6.Service62().GetStatusCode().Result); break;
+                    case "63": Console.WriteLine(new ClientNetFX6.Service63().GetStatusCode().Result); break;
+                    case "64": Console.WriteLine(new ClientNetFX6.Service64().GetStatusCode()); break;
                     default: break;
                 }
 

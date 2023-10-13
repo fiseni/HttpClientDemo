@@ -6,15 +6,12 @@ namespace HttpClientDemo.ClientNetFX4
 {
     internal class Service4
     {
-        public async Task<string> GetEntries()
+        public async Task<string> GetStatusCode()
         {
             var client = CreateClient();
 
             var request = new RestRequest(ApiSettings.Instance.ApiGetEndpoint);
-            var response = await client.ExecuteGetAsync(request);
-
-            //if (response.ResponseStatus != ResponseStatus.Completed)
-            //    return response.ResponseStatus.ToString();
+            var response = await client.ExecuteGetAsync(request).ConfigureAwait(false);
 
             return response.StatusCode.ToString();
         }

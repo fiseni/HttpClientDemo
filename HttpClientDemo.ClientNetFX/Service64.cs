@@ -17,11 +17,11 @@ namespace HttpClientDemo.ClientNetFX6
             _restClientFactory = RestClientFactory.Instance;
         }
 
-        public string GetEntries()
+        public string GetStatusCode()
         {
             var client = _restClientFactory.CreateForDemoApi();
 
-            var request = new RestRequest(ApiSettings.Instance.ApiGetEndpoint);
+            var request = new RestRequest(ApiSettings.Instance.ApiGetEndpointProtected);
             var response = client.ExecuteGet(request);
 
             return response.StatusCode.ToString();

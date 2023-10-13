@@ -5,7 +5,7 @@ namespace HttpClientDemo.ClientNetFX3
 {
     internal class Service3
     {
-        public async Task<string> GetEntries()
+        public async Task<string> GetStatusCode()
         {
             var options = new RestClientOptions(ApiSettings.Instance.ApiUrl);
 
@@ -13,10 +13,7 @@ namespace HttpClientDemo.ClientNetFX3
             client.AddDefaultHeader("accept", "application/json");
 
             var request = new RestRequest(ApiSettings.Instance.ApiGetEndpoint);
-            var response = await client.ExecuteGetAsync(request);
-
-            if (response.ResponseStatus != ResponseStatus.Completed)
-                return response.ResponseStatus.ToString();
+            var response = await client.ExecuteGetAsync(request).ConfigureAwait(false);
 
             return response.StatusCode.ToString();
         }

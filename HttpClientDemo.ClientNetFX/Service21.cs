@@ -12,7 +12,7 @@ namespace HttpClientDemo.ClientNetFX2
             DefaultRequestHeaders = { { "accept", "application/json" } }
         };
 
-        public async Task<string> GetEntries()
+        public async Task<string> GetStatusCode()
         {
             try
             {
@@ -21,7 +21,7 @@ namespace HttpClientDemo.ClientNetFX2
                 var task3 = RunAsync();
                 var task4 = RunAsync();
 
-                await Task.WhenAll(task1, task2, task3, task4);
+                await Task.WhenAll(task1, task2, task3, task4).ConfigureAwait(false);
 
                 return task1.Result + task2.Result + task3.Result + task4.Result;
             }
@@ -33,7 +33,7 @@ namespace HttpClientDemo.ClientNetFX2
 
         private async Task<string> RunAsync()
         {
-            var response = await _client.GetAsync(ApiSettings.Instance.ApiGetEndpoint);
+            var response = await _client.GetAsync(ApiSettings.Instance.ApiGetEndpoint).ConfigureAwait(false);
 
             return response.StatusCode.ToString();
         }
