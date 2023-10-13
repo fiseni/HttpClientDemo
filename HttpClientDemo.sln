@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClientDemo.Server", "Ht
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClientDemo.ClientNetFX", "HttpClientDemo.ClientNetFX\HttpClientDemo.ClientNetFX.csproj", "{89FD01B8-F6FE-4B21-ACF9-CFC3B44D0FCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClientDemo.WebForms", "HttpClientDemo.WebForms\HttpClientDemo.WebForms.csproj", "{ECFD59DB-F96E-4FC5-86CE-2A3CD3E04D41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{89FD01B8-F6FE-4B21-ACF9-CFC3B44D0FCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89FD01B8-F6FE-4B21-ACF9-CFC3B44D0FCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89FD01B8-F6FE-4B21-ACF9-CFC3B44D0FCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECFD59DB-F96E-4FC5-86CE-2A3CD3E04D41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECFD59DB-F96E-4FC5-86CE-2A3CD3E04D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECFD59DB-F96E-4FC5-86CE-2A3CD3E04D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECFD59DB-F96E-4FC5-86CE-2A3CD3E04D41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

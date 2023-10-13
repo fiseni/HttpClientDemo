@@ -112,9 +112,9 @@ namespace HttpClientDemo.ClientNetFX6
 
             private static bool IsTokenValid => _token?.Expiration > DateTime.UtcNow.Ticks;
 
-            private static async Task<TokenDto> GetToken(Uri apiUri)
+            private static async ValueTask<TokenDto> GetToken(Uri apiUri)
             {
-                Console.WriteLine("Checking Token, Thread:" + Thread.CurrentThread.ManagedThreadId + ", Time:" + DateTime.Now.ToString("O") + " - " + HttpContext.Current == null);
+                Console.WriteLine("Checking Token, Thread:" + Thread.CurrentThread.ManagedThreadId + ", Time:" + DateTime.Now.ToString("O") + " - " + HttpContext.Current?.Session?["test"]);
                 
                 if (IsTokenValid) return _token;
 

@@ -37,7 +37,7 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Demo Server API");
     c.RoutePrefix = "api";
 });
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseAuthorization();
 app.UseAuthorization();
 app.MapControllers();
