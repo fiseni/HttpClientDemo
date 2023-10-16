@@ -38,7 +38,6 @@ namespace HttpClientDemo.ClientNetFX
                 case "61": return await new ClientNetFX6.Service61().GetStatusCodeAsync().ConfigureAwait(false);
                 case "62": return await new ClientNetFX6.Service62().GetStatusCodeAsync().ConfigureAwait(false);
                 case "63": return new ClientNetFX6.Service63().GetStatusCode();
-                case "64": return new ClientNetFX6.Service64().GetStatusCode();
                 default: return "Not valid option!";
             }
         }

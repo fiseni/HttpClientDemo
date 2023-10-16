@@ -84,7 +84,6 @@
     <Compile Include="Service21.cs" />
     <Compile Include="Service3.cs" />
     <Compile Include="Service4.cs" />
-    <Compile Include="Service64.cs" />
     <Compile Include="Service63.cs" />
     <Compile Include="Service62.cs" />
     <Compile Include="Service61.cs" />

@@ -86,8 +86,3 @@ It's based on Option6, just exploring the sync API of RestSharp. It uses AsyncHe
 
 ![image](https://github.com/fiseni/HttpClientDemo/assets/24314310/244f25a7-61f7-4b83-9b6a-4cf54099799b)
 
-### [Option 64](https://github.com/fiseni/HttpClientDemo/blob/main/HttpClientDemo.ClientNetFX/Service64.cs)
-
-Same as option 63, just running multiple calls. This will run fully synchronously of course.
-
-![image](https://github.com/fiseni/HttpClientDemo/assets/24314310/08695502-b8d8-4c3a-8973-cfb1f36815c3)
