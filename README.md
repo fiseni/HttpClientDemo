@@ -8,7 +8,7 @@ Playground for testing HttpClient and RestSharp in .NET Framework 4.8 projects. 
 cd HttpClientDemo.Server
 dotnet run -c Release
 ```
-- Open powershell. Run the following command to watch the connections
+- Open PowerShell. Run the following command to watch the connections
 ```
 while ($true) {netstat -ano | findstr :7217; sleep 1; cls}
 ```
@@ -30,7 +30,7 @@ Same as Option1. But, we're initiating 4 requests to demonstrate the effect of c
 
 ### Option 2
 
-Much better approach. In ASP.NET Core we have well established practices for HttpClient usage (e.g. IHttpClientFactory, typed clients). In older platforms wiring up the IHttpClientFactory is not that straightforward, especially if you're utilizing old technologies like web services (asmx). We can use a static HttpClient instance instead. This will reuse the same HttpMessageHandler instance and TCP connection. The downside is that the client will remain oblivious to DNS changes. Also, the HttpClient 4.2.0.0 is not based on SocketsHttpHandler, therefore we can't utilize the PooledConnectionLifetime option. Luckily, we still can use the ServicePointManager to control the connection lifetime. We can set the ConnectionLeaseTimeout to a lower value (by default is indefinite); and we can control the dns refrsh through the DnsRefreshTimeout setting (by defautlt is 120 seconds).
+Much better approach. In ASP.NET Core we have well established practices for HttpClient usage (e.g. IHttpClientFactory, typed clients). In older platforms wiring up the IHttpClientFactory is not that straightforward, especially if you're utilizing old technologies like web services (asmx). We can use a static HttpClient instance instead. This will reuse the same HttpMessageHandler instance and TCP connection. The downside is that the client will remain oblivious to DNS changes. Also, the HttpClient 4.2.0.0 is not based on SocketsHttpHandler, therefore we can't utilize the PooledConnectionLifetime option. Luckily, we still can use the ServicePointManager to control the connection lifetime. We can set the ConnectionLeaseTimeout to a lower value (by default is indefinite); and we can control the dns refresh through the DnsRefreshTimeout setting (by default is 120 seconds).
 
 ### Option 21
 
@@ -66,4 +66,4 @@ It's based on Option6, just exploring the sync API of RestSharp. It uses AsyncHe
 
 ### Option 64
 
-Same as option 63, just running multiple calls. The first impression is that this will run fully synchronously. But, the results are quite surprising.
+Same as option 63, just running multiple calls. This will run fully synchronously of course.

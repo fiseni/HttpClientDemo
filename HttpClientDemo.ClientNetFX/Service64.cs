@@ -5,7 +5,7 @@ namespace HttpClientDemo.ClientNetFX6
 {
     // Option 64
     // Same as option 63, just running multiple calls.
-    // The first impression is that this will run fully synchronously. But, the results are quite surprising.
+    // This will run fully synchronously of course.
     public class Service64
     {
         private readonly IRestClientFactory _restClientFactory;

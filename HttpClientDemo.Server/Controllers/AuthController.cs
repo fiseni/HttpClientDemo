@@ -13,9 +13,9 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("/identity/authenticate")]
-    public ActionResult<TokenDto> Authenticate()
+    public async Task<ActionResult<TokenDto>> Authenticate()
     {
-        var accessTokenExpiration = DateTime.UtcNow.AddMinutes(2);
+        await Task.Delay(50);
 
         var token = _identityService.BuildToken();
 
@@ -23,9 +23,9 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("/identity/refresh-token")]
-    public ActionResult<TokenDto> RefreshToken()
+    public async Task<ActionResult<TokenDto>> RefreshToken()
     {
-        var accessTokenExpiration = DateTime.UtcNow.AddMinutes(2);
+        await Task.Delay(50);
 
         var token = _identityService.BuildToken();
 
