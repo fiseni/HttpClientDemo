@@ -114,7 +114,7 @@ namespace HttpClientDemo.ClientNetFX6
 
         private class MyAuthenticator : IAuthenticator
         {
-            private static readonly SemaphoreSlim semaphoreSlim = new SemaphoreSlim(1, 1);
+            private static readonly SemaphoreSlim _semaphoreSlim = new SemaphoreSlim(1, 1);
             private static TokenDto _token;
             private readonly Uri _apiUri;
 
@@ -141,7 +141,7 @@ namespace HttpClientDemo.ClientNetFX6
 
                 Console.WriteLine($"Waiting for Token. \tTime: {DateTime.Now:mm:ss.FFFFFFF}");
 
-                await semaphoreSlim.WaitAsync().ConfigureAwait(false);
+                await _semaphoreSlim.WaitAsync().ConfigureAwait(false);
 
                 try
                 {
@@ -159,7 +159,7 @@ namespace HttpClientDemo.ClientNetFX6
                 }
                 finally
                 {
-                    semaphoreSlim.Release();
+                    _semaphoreSlim.Release();
                 }
 
                 return _token;

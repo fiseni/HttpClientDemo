@@ -28,7 +28,7 @@ Not recommended. It instantiates a new HttpClient on each call; that means new H
 
 ### [Option 11](https://github.com/fiseni/HttpClientDemo/blob/main/HttpClientDemo.ClientNetFX/Service11.cs)
 
-Same as Option1. But, we're initiating 4 requests to demonstrate the effect of concurrent calls, and how quickly the open connections can pile up. On each call, 4 new connections will be created.
+Same as Option1. But, we're initiating 4 requests to demonstrate the effect of concurrent calls, and how quickly the open connections can pile up. On each method call, 4 new connections will be created.
 
 ![image](https://github.com/fiseni/HttpClientDemo/assets/24314310/931f14fb-0d32-4e74-bc95-956f4871ad76)
 
