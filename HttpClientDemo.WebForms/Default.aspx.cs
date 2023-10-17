@@ -14,8 +14,7 @@ namespace HttpClientDemo.WebForms
 
         protected void ButtonRun_Click(object sender, EventArgs e)
         {
-            var option = TextBoxOption.Text;
-            var response = ClientNetFX.Program.GetResponseAsync(option).Result;
+            var response = new ClientNetFX6.Service63().GetStatusCode();
             TextBoxResponse.Text = response;
         }
 

@@ -33,15 +33,6 @@ namespace HttpClientDemo.WebForms
         protected global::System.Web.UI.WebControls.TextBox TextBoxOption;
 
         /// <summary>
-        /// ButtonRun control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonRun;
-
-        /// <summary>
         /// ButtonRunAsync control.
         /// </summary>
         /// <remarks>
@@ -49,6 +40,15 @@ namespace HttpClientDemo.WebForms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonRunAsync;
+
+        /// <summary>
+        /// ButtonRun control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonRun;
 
         /// <summary>
         /// Label2 control.

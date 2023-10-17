@@ -13,8 +13,8 @@
                 </p>
                 <p>
                     <asp:TextBox ID="TextBoxOption" runat="server" Width="159px"></asp:TextBox>
-                    <asp:Button ID="ButtonRun" runat="server" OnClick="ButtonRun_Click" Text="Run" Width="107px" />
                     <asp:Button ID="ButtonRunAsync" runat="server" OnClick="ButtonRunAsync_Click" Text="Run Async" />
+                    <asp:Button ID="ButtonRun" runat="server" OnClick="ButtonRun_Click" Text="Run Option63 (sync)" Width="163px" />
                 </p>
                 <p>
                     <asp:Label ID="Label2" runat="server" Text="Response"></asp:Label>
