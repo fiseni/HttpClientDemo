@@ -67,5 +67,23 @@ namespace HttpClientDemo.WebForms
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxResponse;
+
+        /// <summary>
+        /// ButtonCallHttpHandlerAsync control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonCallHttpHandlerAsync;
+
+        /// <summary>
+        /// ButtonCallHttpHandler control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonCallHttpHandler;
     }
 }

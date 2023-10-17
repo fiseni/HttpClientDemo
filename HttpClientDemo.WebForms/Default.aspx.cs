@@ -29,5 +29,15 @@ namespace HttpClientDemo.WebForms
             var response = await ClientNetFX.Program.GetResponseAsync(option);
             TextBoxResponse.Text = response;
         }
+
+        protected void ButtonCallHttpHandlerAsync_Click(object sender, EventArgs e)
+        {
+            Page.Response.Redirect("DemoHttpHandlerAsync?option=" + TextBoxOption.Text);
+        }
+
+        protected void ButtonCallHttpHandler_Click(object sender, EventArgs e)
+        {
+            Page.Response.Redirect("DemoHttpHandler");
+        }
     }
 }

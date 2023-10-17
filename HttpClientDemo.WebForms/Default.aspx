@@ -23,6 +23,10 @@
                     <asp:TextBox ID="TextBoxResponse" runat="server"></asp:TextBox>
                 </p>
                 <p>
+                    <asp:Button ID="ButtonCallHttpHandlerAsync" runat="server" OnClick="ButtonCallHttpHandlerAsync_Click" Text="Call Async HttpHandler" />
+                    <asp:Button ID="ButtonCallHttpHandler" runat="server" OnClick="ButtonCallHttpHandler_Click" Text="Call HttpHandler (Option63)" />
+                </p>
+                <p>
                     &nbsp;</p>
             </section>
         </div>
