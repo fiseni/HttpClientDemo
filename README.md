@@ -12,9 +12,12 @@ dotnet run -c Release
 ```
 while ($true) {netstat -ano | findstr :7217; sleep 1; cls}
 ```
-- Run the clients and test various options.
+- Run one of the clients to test various options.
 1. Run the `ClientNetFx` project. It's a .NET Framework 4.8 console app.
 2. Run the `WebForms` project. It's a ASP.NET WebForms 4.8 app.
+    - We're using the default template for WebForms. Updated only the NuGet dependencies, no other changes.
+    - The `Default.aspx.cs` contains a sample how to make async calls. Refer to this [post](https://learn.microsoft.com/en-us/aspnet/web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45) for more details.
+    - The `DemoWebService` contains a sample how to make async calls from a web services (asmx). We're using TAP to APM interop provided in `Nito.AsyncEx.Tasks`. For further details, refer to this [post](https://learn.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/interop-with-other-asynchronous-patterns-and-types?WT.mc_id=DT-MVP-5000058#from-tap-to-apm), and the [interop implementation](https://github.com/StephenCleary/AsyncEx/blob/0361015459938f2eb8f3c1ad1021d19ee01c93a4/src/Nito.AsyncEx.Tasks/Interop/ApmAsyncFactory.cs).
 
 ## Scenarios
 
