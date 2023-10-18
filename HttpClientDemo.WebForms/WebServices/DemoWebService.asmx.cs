@@ -1,5 +1,4 @@
-﻿using Nito.AsyncEx.Interop;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -28,13 +27,13 @@ namespace HttpClientDemo.WebForms.WebServices
         [WebMethod]
         public IAsyncResult BeginRunAsync(string option, AsyncCallback callback, object state)
         {
-            return ApmAsyncFactory.ToBegin<string>(ClientNetFX.Program.GetResponseAsync(option), callback, state);
+            return ClientNetFX.Program.GetResponseAsync(option).AsApm(callback, state);
 
         }
         [WebMethod]
         public string EndRunAsync(IAsyncResult result)
         {
-            return ApmAsyncFactory.ToEnd<string>(result);
+            return result.Unwrap<string>();
         }
     }
 }
